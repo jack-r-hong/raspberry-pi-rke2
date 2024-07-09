@@ -1,0 +1,34 @@
+# - name: Deploy RKE2
+#   # hosts: k8s_cluster
+#   hosts: rke21
+#   become: yes
+#   # vars:
+#     # rke2_airgap_mode: true
+#     # rke2_airgap_implementation: download
+#   #   rke2_ha_mode: true
+#   #   rke2_api_ip: 192.168.100.6
+#   #   rke2_download_kubeconf: true
+#   roles:
+#     - role: lablabs.rke2
+# - name: Deploy RKE2
+#   hosts: k8s_cluster
+#   become: yes
+#   roles:
+#     - role: lablabs.rke2
+- name: Deploy RKE2
+  hosts: k8s_cluster
+  become: true
+  roles:
+    - role: lablabs.rke2
+  vars:
+    rke2_type: server
+    rke2_version: v1.28.8+rke2r1
+    # rke2_disable:
+    #   - rke2-ingress-nginx
+    #   - rke2-canal
+    # disable_kube_proxy: true
+    rke2_cni:
+      - multus
+      - cilium
+    rke2_download_kubeconf: true
+
