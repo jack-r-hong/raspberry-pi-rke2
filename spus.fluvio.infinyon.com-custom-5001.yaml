@@ -1,0 +1,28 @@
+apiVersion: fluvio.infinyon.com/v1
+kind: Spu
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"fluvio.infinyon.com/v1","kind":"Spu","metadata":{"annotations":{},"name":"custom-5001","namespace":"fluvio"},"spec":{"privateEndpoint":{"encryption":"PLAINTEXT","host":"fluvio-spg-main-0.fluvio-spg-default.fluvio.svc.cluster.local","port":9006},"publicEndpoint":{"encryption":"PLAINTEXT","ingress":[{"hostname":"localhost","ip":"192.168.0.151"}],"port":30004},"publicEndpointLocal":{"encryption":"PLAINTEXT","host":"fluvio-spu-default-0.fluvio.svc.cluster.local","port":9005},"spuId":5001,"spuType":"Custom"},"status":{"resolution":"Online"}}
+  creationTimestamp: "2024-08-06T01:34:47Z"
+  generation: 1
+  name: custom-5001
+  namespace: fluvio
+  resourceVersion: "87610"
+  uid: a0510312-6467-41b6-88e0-9ea4a9c8b47f
+spec:
+  privateEndpoint:
+    encryption: PLAINTEXT
+    host: fluvio-spg-main-0.fluvio-spg-default.fluvio.svc.cluster.local
+    port: 9006
+  publicEndpoint:
+    encryption: PLAINTEXT
+    ingress:
+    - ip: 192.168.0.151
+    port: 30004
+  publicEndpointLocal:
+    encryption: PLAINTEXT
+    host: fluvio-spu-default-0.fluvio.svc.cluster.local
+    port: 9005
+  spuId: 5001
+  spuType: Custom

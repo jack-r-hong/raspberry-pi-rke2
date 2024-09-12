@@ -1,0 +1,22 @@
+apiVersion: fluvio.infinyon.com/v1
+kind: SpuGroup
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"fluvio.infinyon.com/v1","kind":"SpuGroup","metadata":{"annotations":{},"name":"default","namespace":"fluvio"},"spec":{"minId":1,"replicas":1,"template":{"spec":{}}}}
+  creationTimestamp: "2024-08-22T01:39:46Z"
+  generation: 1
+  name: default
+  namespace: fluvio
+  resourceVersion: "209032"
+  uid: 1e5127a1-a9eb-481a-8e11-abae5fb9c583
+spec:
+  minId: 1
+  replicas: 1
+  template:
+    spec: 
+      publicEndpoint: 
+        port: 9003
+status:
+  reason: null
+  resolution: Reserved

@@ -1,0 +1,51 @@
+image:
+  # -- ORY KRATOS image
+  repository: oryd/kratos
+  # -- ORY KRATOS VERSION
+  # Alternative format: image: oryd/kratos:v0.6.3-alpha.1
+  tag: v1.2.0
+  pullPolicy: IfNotPresent
+  # imagePullPolicy: Always
+
+cleanup:
+  enabled: true
+kratos: 
+  automigration:
+    enabled: true
+  config:
+    dsn: mysql://root:root@tcp(basic-tidb.tidb-cluster.svc.cluster.local:4000)/kratos     
+    identity: 
+      default_schema_id: default
+      schemas: 
+       - id: default
+         url: file:///etc/config/identity.default.schema.json
+  identitySchemas:
+    "identity.default.schema.json": |
+      {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "traits": {
+            "type": "object",
+            "properties": {
+              "username": {
+                "title": "Username",
+                "type": "string"
+              },
+              "name": {
+                "type": "object",
+                "properties": {
+                  "first": {
+                    "title": "First name",
+                    "type": "string"
+                  },
+                  "last": {
+                    "title": "Last name",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }

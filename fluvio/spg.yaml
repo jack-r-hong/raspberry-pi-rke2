@@ -1,0 +1,42 @@
+# apiVersion: fluvio.infinyon.com/v1
+# kind: Spu
+# metadata:
+#   name: custom-spu-1
+#   namespace: fluvio
+#   # ownerReferences:
+#   # - apiVersion: fluvio.infinyon.com/v1
+#   #   blockOwnerDeletion: false
+#   #   kind: SpuGroup
+#   #   name: default
+#   #   uid: 381255be-07e1-4e10-a522-61fac6b3cc0c
+# spec:
+#   privateEndpoint:
+#     encryption: PLAINTEXT
+#     host: fluvio-spg-main-0.fluvio-spg-default.fluvio.svc.cluster.local
+#     port: 9006
+#   publicEndpoint:
+#     encryption: PLAINTEXT
+#     port: 30004
+#     ingress:
+#       - ip: 192.168.0.151
+#   # publicEndpointLocal:
+#   #   encryption: PLAINTEXT
+#   #   host: fluvio-spu-default-0.fluvio.svc.cluster.local
+#   #   port: 9005
+#   spuId: 5001
+#   spuType: Custom
+# status:
+#   resolution: Online  
+# # ---
+apiVersion: fluvio.infinyon.com/v1
+kind: SpuGroup
+metadata:
+  name: default
+  namespace: fluvio
+spec:
+  minId: 1
+  replicas: 1
+  template:
+    spec: {}    
+
+

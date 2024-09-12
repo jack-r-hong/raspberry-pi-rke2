@@ -1,0 +1,9 @@
+apiVersion: fluvio.infinyon.com/v1
+kind: Partition
+metadata:
+  name: p1
+  namespace: fluvio
+
+spec:
+  leader: 5001
+  
